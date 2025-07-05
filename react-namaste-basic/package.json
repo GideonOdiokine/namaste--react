@@ -2,7 +2,6 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "This is namaste react by Gideon Odiokine",
-  "main": " App.js",
   "scripts": {
     "test": "jest"
   },
@@ -19,5 +18,9 @@
   "homepage": "https://github.com/GideonOdiokine/namaste-react#readme",
   "devDependencies": {
     "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
