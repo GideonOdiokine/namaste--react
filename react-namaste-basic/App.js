@@ -7,15 +7,18 @@ import { createRoot } from "react-dom/client";
 // JSX
 // const jsxHeading = <h1 id='heading'>Namaste React using JSX</h1>
 
+const Title = () => {
+  return <h1>Namaste React using JSX</h1>;
+};
 
-const HeadingComponent = ()=>(
-    <div className='bg-black'>
-        Hello girl
-    </div>
-)
+// Component composition
+const HeadingComponent = () => (
+  <div className="bg-black">
+    <Title />
+    Hello girl
+  </div>
+);
 
 const root = createRoot(document.getElementById("root"));
 
-root.render(<HeadingComponent/>);
-
-
+root.render(<HeadingComponent />);
