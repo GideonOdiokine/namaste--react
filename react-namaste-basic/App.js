@@ -12,13 +12,57 @@ const Title = () => {
 };
 
 // Component composition
-const HeadingComponent = () => (
-  <div className="bg-black">
-    <Title />
-    Hello girl
+const Header = () => (
+  <div className="header">
+    <div className="logo">
+      <img
+        className="logo"
+        src="https://cdn.pixabay.com/photo/2020/08/05/13/28/eco-5465482_640.png"
+        alt="logo"
+      />
+    </div>
+    <div className="nav-items">
+      <ul>
+        <li>Home</li>
+        <li>About us</li>
+        <li>Contact</li>
+      </ul>
+    </div>
   </div>
 );
 
+const RestaurantCard = ()=>{
+    return (
+        <div className="res-card">
+            <h3>Call Me Chow</h3>
+
+        </div>
+    )
+}
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">
+        <input type="text" placeholder="search" />
+      </div>
+      <div className="res-container">
+        {/* Restaurant card */}
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
+
 const root = createRoot(document.getElementById("root"));
 
-root.render(<HeadingComponent />);
+root.render(<AppLayout />);
