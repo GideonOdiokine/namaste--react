@@ -1,19 +1,29 @@
-const Header = () => (
-  <div className="header">
-    <div className="logo">
-      <img
-        className="logo"
-        src="https://cdn.pixabay.com/photo/2020/08/05/13/28/eco-5465482_640.png"
-        alt="logo"
-      />
-    </div>
-    <div className="nav-items">
-      <ul>
-        <li>Home</li>
-        <li>About us</li>
-        <li>Contact</li>
-      </ul>
-    </div>
-  </div>
+// import foodFireLogo from "../../public/images/foodFireLogo.png";
+
+// Title component for display logo
+const Title = () => (
+  <a href="/">
+    <img className="logo" src={'https://github.com/chetannada/Namaste-React/blob/main/public/Images/foodFireLogo.png?raw=true'} alt="Food Fire Logo" />
+  </a>
 );
+
+// Header component for header section: Logo, Nav Items
+const Header = () => {
+  return (
+    <div className="header">
+      <Title />
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+          <li>
+            <i className="fa-solid fa-cart-shopping"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
 export default Header;
