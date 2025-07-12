@@ -1,29 +1,38 @@
+import { IMG_CDN_URL } from '../../public/common/constants';
+
 // Restaurant card component: Image, name, cuisine
 const RestaurantCard = ({
+  cloudinaryImageId,
   name,
   cuisines,
-  area,
-  lastMileTravelString,
-  costForTwoString,
-  avgRating,
+  areaName,
+  sla,
+  costForTwo,
+  avgRatingString,
 }) => {
   return (
     <div className="card">
-      <img src="https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_500,ar_4:3/v1/img/recipes/40/49/7/iUlxb54sSWaD9Zp44kfP_FGgWFV4mSVq8aISp1eQG_baked%2520wings%2520(1%2520of%25204).jpg" />
-      <h2>{name}</h2>
+      <img src={IMG_CDN_URL + cloudinaryImageId} />
+      <h3>{name}</h3>
       <h5>{cuisines.join(", ")}</h5>
-      <h6>{area}</h6>
+      <h5>{areaName}</h5>
       <span>
         <h4
           style={
-            avgRating < 4 ? { backgroundColor: "red" } : { color: "white" }
+            avgRatingString < 4
+              ? { backgroundColor: "var(--light-red)" }
+              : avgRatingString === "--"
+                ? { backgroundColor: "white", color: "black" }
+                : { color: "white" }
           }
         >
           <i className="fa-solid fa-star"></i>
-          {avgRating}
+          {avgRatingString}
         </h4>
-        <h4>{lastMileTravelString}</h4>
-        <h4>{costForTwoString}</h4>
+        <h4>•</h4>
+        <h4>{sla?.lastMileTravelString ?? '2.0 km'}</h4>
+        <h4>•</h4>
+        <h4>{costForTwo ?? '₹200 for two'}</h4>
       </span>
     </div>
   );
