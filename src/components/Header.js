@@ -1,6 +1,6 @@
-// import foodFireLogo from "../../public/images/foodFireLogo.png";
 import { useState } from "react";
-import { LuShoppingCart } from "react-icons/lu";
+import { Link } from "react-router-dom"; // imported Link for client side routing
+import { useNavigate } from "react-router-dom";
 
 // Title component for display logo
 const Title = () => (
@@ -11,34 +11,45 @@ const Title = () => (
         "https://github.com/chetannada/Namaste-React/blob/main/public/Images/foodFireLogo.png?raw=true"
       }
       alt="Food Fire Logo"
+      title="Food Fire Logo"
     />
   </a>
 );
 
 // Header component for header section: Logo, Nav Items
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // use useState for user logged in or logged out
+  const [isLoggedin, setIsLoggedin] = useState(true);
+  const navigate = useNavigate();
   return (
     <div className="header">
       <Title />
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
           <li>
-            <LuShoppingCart />
+            <Link to="/">Home</Link>
           </li>
           <li>
-            {isLoggedIn ? (
+            <Link to="/about">About</Link>
+          </li>
+
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <i className="fa-solid fa-cart-shopping"></i>
+          </li>
+          <li>
+            {/* use conditional rendering for login and logout */}
+            {isLoggedin ? (
               <button
                 className="logout-btn"
-                onClick={() => setIsLoggedIn(false)}
+                onClick={() => setIsLoggedin(false)}
               >
                 Logout
               </button>
             ) : (
-              <button className="login-btn" onClick={() => setIsLoggedIn(true)}>
+              <button className="login-btn" onClick={() => navigate("/login")}>
                 Login
               </button>
             )}
