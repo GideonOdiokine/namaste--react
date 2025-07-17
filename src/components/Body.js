@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { restaurantList } from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import { FOODFIRE_API_URL } from "../../public/common/constants";
@@ -34,10 +34,16 @@ const Body = () => {
         setErrorMessage("No item found");
       }
     } else {
-      setErrorMessage('')
+      setErrorMessage("");
       setFilteredList(restaurantList);
     }
   };
+
+  useEffect(() => {
+    if (searchText === "") {
+      setFilteredList(restaurantList);
+    }
+  }, [searchText]);
 
   return (
     <div className="body">
