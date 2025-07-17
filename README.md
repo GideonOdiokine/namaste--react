@@ -18,3 +18,4 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+# namaste-react
