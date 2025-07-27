@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"; // imported Link for client side routing
 import { useNavigate } from "react-router-dom";
+import { useOnlineStatus } from '../hooks/useOnlineStatus';
 
 // Title component for display logo
 const Title = () => (
@@ -20,6 +21,8 @@ const Title = () => (
 const Header = () => {
   // use useState for user logged in or logged out
   const [isLoggedin, setIsLoggedin] = useState(true);
+  const { Isonline } = useOnlineStatus();
+  console.log(Isonline);
   const navigate = useNavigate();
   return (
     <div className="header">

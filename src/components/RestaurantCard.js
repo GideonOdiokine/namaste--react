@@ -11,11 +11,12 @@ const RestaurantCard = ({
   avgRatingString,
 }) => {
 
+
   return (
     <div className="card">
       <img src={IMG_CDN_URL + cloudinaryImageId} />
       <h3>{name}</h3>
-      <h5>{cuisines.join(", ")}</h5>
+      {/* <h5>{cuisines.join(", ")}</h5> */}
       <h5>{areaName}</h5>
       <span>
         <h4

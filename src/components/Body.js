@@ -3,6 +3,7 @@ import { restaurantList } from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import { FOODFIRE_API_URL } from "../../public/common/constants";
 import Shimmer from "./Shimmer";
+import { Link } from 'react-router-dom';
 
 const searchDataFunc = (searchText, restaurants) => {
   return restaurants.filter((res) =>
@@ -45,6 +46,7 @@ const Body = () => {
     }
   }, [searchText]);
 
+
   return (
     <div className="body">
       <div className="search-container">
@@ -81,7 +83,13 @@ const Body = () => {
       <div className="restaurant-list">
         {/* Restaurant card */}
         {filteredList.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
+          <Link
+            to={"/restaurant/" + restaurant?.info?.id}
+          key={restaurant.data.id}
+          >
+            {/* if we click on any restaurant card it will redirect to that restaurant menu page */}
+            <RestaurantCard  {...restaurant.data} />
+          </Link>
         ))}
       </div>
     </div>

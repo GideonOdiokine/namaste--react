@@ -1,8 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react"; /* This is named export */
 import Shimmer from "./Shimmer"; /* This is default export */
-import { FOODFIRE_API_URL } from '../../public/common/constants';
-
+import { FOODFIRE_API_URL } from "../../public/common/constants";
+import { Link } from "react-router-dom";
 
 // Filter the restaurant data according input type
 function filterData(searchText, restaurants) {
@@ -13,7 +13,7 @@ function filterData(searchText, restaurants) {
 }
 
 // Body Component for body section: It contain all restaurant cards
-const Body = () => {
+const Bodyi = () => {
   // useState: To create a state variable, searchText, allRestaurants and filteredRestaurants is local state variable
   const [searchText, setSearchText] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -73,6 +73,12 @@ const Body = () => {
     }
   };
 
+  useEffect(() => {
+    if (searchText === "") {
+      setFilteredRestaurants(allRestaurants);
+    }
+  }, [searchText]);
+
   // if allRestaurants is empty don't render restaurants cards
   if (!allRestaurants) return null;
 
@@ -107,10 +113,13 @@ const Body = () => {
           {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
           {filteredRestaurants.map((restaurant) => {
             return (
-              <RestaurantCard
+              <Link
+                to={"/restaurant/" + restaurant?.info?.id}
                 key={restaurant?.info?.id}
-                {...restaurant?.info}
-              />
+              >
+                {/* if we click on any restaurant card it will redirect to that restaurant menu page */}
+                <RestaurantCard {...restaurant?.info} />
+              </Link>
             );
           })}
         </div>
@@ -119,4 +128,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default Bodyi;
