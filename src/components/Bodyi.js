@@ -19,6 +19,7 @@ const Bodyi = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showLessBtn, setShowLessBtn] = useState(false);
 
   // use useEffect for one time call getRestaurants using empty dependency array
   useEffect(() => {
@@ -102,6 +103,31 @@ const Bodyi = () => {
         >
           Search
         </button>
+        {showLessBtn ? (
+          <button
+            onClick={() => {
+              setShowLessBtn(false);
+              setFilteredRestaurants(allRestaurants);
+            }}
+            className="search-btn"
+            style={{ marginLeft: "10px" }}
+          >
+            Show all restaurantList
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setShowLessBtn(true);
+              setFilteredRestaurants(
+                allRestaurants.filter((res) => res?.info?.avgRating > 4.5)
+              );
+            }}
+            className="search-btn"
+            style={{ marginLeft: "10px" }}
+          >
+            Top Rated restaurantList
+          </button>
+        )}
       </div>
       {errorMessage && <div className="error-container">{errorMessage}</div>}
 

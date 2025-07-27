@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const useOnlineStatus = () => {
-  const [Isonline, setIsOnline] = useState(true);
+  const [isonline, setIsOnline] = useState(true);
 
   useEffect(() => {
     window.addEventListener("offline", () => {
@@ -14,6 +14,6 @@ export const useOnlineStatus = () => {
   }, []);
 
   return {
-    Isonline,
+    isonline,
   };
 };

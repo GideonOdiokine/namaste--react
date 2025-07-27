@@ -21,9 +21,10 @@ const Title = () => (
 const Header = () => {
   // use useState for user logged in or logged out
   const [isLoggedin, setIsLoggedin] = useState(true);
-  const { Isonline } = useOnlineStatus();
-  console.log(Isonline);
+
+  const { isonline } = useOnlineStatus();
   const navigate = useNavigate();
+
   return (
     <div className="header">
       <Title />
@@ -42,18 +43,33 @@ const Header = () => {
           <li>
             <i className="fa-solid fa-cart-shopping"></i>
           </li>
-          <li>
+         <li>
             {/* use conditional rendering for login and logout */}
             {isLoggedin ? (
               <button
                 className="logout-btn"
-                onClick={() => setIsLoggedin(false)}
+                onClick={() => {
+                  clearLocalStorage();
+                  setIsLoggedin(false);
+                }}
               >
                 Logout
+                <span
+                  className={isonline ? "login-btn-green" : "login-btn-red"}
+                >
+                  {" "}
+                  ●
+                </span>
               </button>
             ) : (
               <button className="login-btn" onClick={() => navigate("/login")}>
                 Login
+                <span
+                  className={isonline ? "login-btn-green" : "login-btn-red"}
+                >
+                  {" "}
+                  ●
+                </span>
               </button>
             )}
           </li>
