@@ -4,7 +4,7 @@
   "description": "This is namaste react by Gideon Odiokine",
   "scripts": {
     "start": "parcel index.html --port 3000",
-    "build": "parcel build index.html --public-url ./",
+    "build": "parcel build index.html --public-url --profile./",
     "test": "jest"
   },
   "repository": {

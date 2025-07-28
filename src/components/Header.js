@@ -22,7 +22,7 @@ const Header = () => {
   // use useState for user logged in or logged out
   const [isLoggedin, setIsLoggedin] = useState(true);
 
-  const { isonline } = useOnlineStatus();
+  const { isOnline } = useOnlineStatus();
   const navigate = useNavigate();
 
   return (
@@ -49,13 +49,12 @@ const Header = () => {
               <button
                 className="logout-btn"
                 onClick={() => {
-                  clearLocalStorage();
                   setIsLoggedin(false);
                 }}
               >
                 Logout
                 <span
-                  className={isonline ? "login-btn-green" : "login-btn-red"}
+                  className={isOnline ? "login-btn-green" : "login-btn-red"}
                 >
                   {" "}
                   ●
@@ -65,7 +64,7 @@ const Header = () => {
               <button className="login-btn" onClick={() => navigate("/login")}>
                 Login
                 <span
-                  className={isonline ? "login-btn-green" : "login-btn-red"}
+                  className={isOnline ? "login-btn-green" : "login-btn-red"}
                 >
                   {" "}
                   ●
