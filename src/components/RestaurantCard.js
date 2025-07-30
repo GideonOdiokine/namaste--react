@@ -44,7 +44,18 @@ export const withPromptedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <label>Prompted</label>
+        <label
+          style={{
+            position: "absolute",
+            background: "black",
+            color: "white",
+            margin: "8px",
+            padding: "8px",
+            borderRadius: "12px",
+          }}
+        >
+          Prompted
+        </label>
         <RestaurantCard {...props} />
       </div>
     );

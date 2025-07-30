@@ -48,7 +48,6 @@ const Body = () => {
     }
   }, [searchText]);
 
-  console.log(RestaurantCardPrompted('pp'));
 
   return (
     <div className="body">
