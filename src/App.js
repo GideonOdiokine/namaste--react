@@ -11,7 +11,8 @@ import Contact from "./Components/Contact";
 import Login from "./Components/Login";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
 import RestaurantMenu from './components/RestaurantMenu';
-import Bodyi from './Components/Bodyi';
+// import Bodyi from './Components/Bodyi';
+import Body from './components/Body'
 
 /* My Food App structure will look like this,
             1) Header
@@ -52,7 +53,7 @@ const appRouter = createBrowserRouter([
       // show children component for routing
       {
         path: "/",
-        element: <Bodyi />,
+        element: <Body />,
       },
       {
         path: "/about",

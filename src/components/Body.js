@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { restaurantList } from "../utils/mockData";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromptedLabel } from "./RestaurantCard";
 import { FOODFIRE_API_URL } from "../../public/common/constants";
 import Shimmer from "./Shimmer";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const searchDataFunc = (searchText, restaurants) => {
   return restaurants.filter((res) =>
@@ -15,6 +15,8 @@ const Body = () => {
   const [filteredList, setFilteredList] = React.useState(restaurantList);
   const [searchText, setSearchText] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
+
+  const RestaurantCardPrompted = withPromptedLabel(RestaurantCard);
 
   React.useEffect(() => {
     fetchData();
@@ -46,6 +48,7 @@ const Body = () => {
     }
   }, [searchText]);
 
+  console.log(RestaurantCardPrompted('pp'));
 
   return (
     <div className="body">
@@ -85,10 +88,14 @@ const Body = () => {
         {filteredList.map((restaurant) => (
           <Link
             to={"/restaurant/" + restaurant?.info?.id}
-          key={restaurant.data.id}
+            key={restaurant.data.id}
           >
-            {/* if we click on any restaurant card it will redirect to that restaurant menu page */}
-            <RestaurantCard  {...restaurant.data} />
+            {/* if the restaurant is promoted then add a promoted label to it*/}
+            {restaurant.data.promoted ? (
+              <RestaurantCardPrompted {...restaurant.data}/>
+            ) : (
+              <RestaurantCard {...restaurant.data} />
+            )}
           </Link>
         ))}
       </div>
