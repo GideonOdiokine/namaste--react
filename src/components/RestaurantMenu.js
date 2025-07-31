@@ -1,12 +1,17 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { IMG_CDN_URL, ITEM_IMG_CDN_URL } from "../../public/Common/constants";
 import { useRestaurantMenu } from "../hooks/useRestaurantMenu";
 import { MenuShimmer } from "./Shimmer";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+import ItemList from './ItemList';
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
 
   const { restaurant, menuItems } = useRestaurantMenu(resId);
+
+  const dispatch = useDispatch();
 
   return !restaurant ? (
     <MenuShimmer />
@@ -50,7 +55,7 @@ const RestaurantMenu = () => {
             <p className="menu-count">{menuItems.length} ITEMS</p>
           </div>
           <div className="menu-items-list">
-            {menuItems.map((item) => (
+            {/* {menuItems.map((item) => (
               <div className="menu-item" key={item?.id}>
                 <div className="menu-item-details">
                   <h3 className="item-title">{item?.name}</h3>
@@ -72,10 +77,19 @@ const RestaurantMenu = () => {
                       alt={item?.name}
                     />
                   )}
-                  <button className="add-btn"> ADD +</button>
+                  <button
+                    className="add-btn"
+                    onClick={() => {
+                      dispatch(addItem(item));
+                    }}
+                  >
+                    {" "}
+                    ADD +
+                  </button>
                 </div>
               </div>
-            ))}
+            ))} */}
+            <ItemList items={menuItems} />
           </div>
         </div>
       </div>

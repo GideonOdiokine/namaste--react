@@ -28,7 +28,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   //   Subscribe to the store using selector
-  const cart = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store) => store.cart.items);
+
+  console.log(cartItems);
 
   return (
     <div className="header">
@@ -52,7 +54,8 @@ const Header = () => {
               justifyContent: "center",
             }}
           >
-            <FaShoppingCart /> {cart.length} items
+            <FaShoppingCart />{" "}
+            <Link to="/cart">Cart - ({cartItems.length} items)</Link>
           </li>
           <li>
             {/* use conditional rendering for login and logout */}

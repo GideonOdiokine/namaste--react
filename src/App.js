@@ -12,6 +12,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Bodyi from "./Components/Bodyi";
 import { Provider } from "react-redux";
 import appStore from './utils/appStore';
+import Cart from './components/Cart';
 
 /* My Food App structure will look like this,
             1) Header
@@ -67,6 +68,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
