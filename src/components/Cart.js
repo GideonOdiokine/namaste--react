@@ -15,7 +15,7 @@ const Cart = () => {
   };
 
   return (
-    <div style={{ margin: "40px", padding: "40px" }}>
+    <div style={{ margin: "40px", padding: "40px", textAlign:'center' }}>
       <h1 className="text-2xl font-bold">Cart</h1>
       <div className="w-6/12 m-auto">
         {cartItems.length > 0 && (
