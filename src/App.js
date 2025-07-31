@@ -1,6 +1,4 @@
-// ## Namaste React Course by Akshay Saini
-// # Chapter 07 - Finding the Path
-
+// ## Namaste React by Gideon Odiokine
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
@@ -10,8 +8,10 @@ import Error from "./Components/Error";
 import Contact from "./Components/Contact";
 import Login from "./Components/Login";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
-import RestaurantMenu from './components/RestaurantMenu';
-import Bodyi from './Components/Bodyi';
+import RestaurantMenu from "./components/RestaurantMenu";
+import Bodyi from "./Components/Bodyi";
+import { Provider } from "react-redux";
+import appStore from './utils/appStore';
 
 /* My Food App structure will look like this,
             1) Header
@@ -34,11 +34,13 @@ import Bodyi from './Components/Bodyi';
 // AppLayout component to render: Header, Outlet(it contain children component like body, About, Restaurant Menu etc) and Footer Component
 const AppLayout = () => {
   return (
-    <React.Fragment>
-      <Header />
-      <Outlet />
-      <Footer />
-    </React.Fragment>
+    <Provider store={appStore}>
+      <React.Fragment>
+        <Header />
+        <Outlet />
+        <Footer />
+      </React.Fragment>
+    </Provider>
   );
 };
 
