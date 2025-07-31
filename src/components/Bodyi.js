@@ -87,7 +87,7 @@ const Bodyi = () => {
     return <UserOffline />;
   }
 
-  console.log(allRestaurants);
+//   console.log(allRestaurants);
   // if allRestaurants is empty don't render restaurants cards
   if (!allRestaurants) return null;
   // if user is not Online then return UserOffline component

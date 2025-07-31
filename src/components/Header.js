@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"; // imported Link for client side routing
 import { useNavigate } from "react-router-dom";
-import { useOnlineStatus } from '../hooks/useOnlineStatus';
+import { useOnlineStatus } from "../hooks/useOnlineStatus";
+import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 // Title component for display logo
 const Title = () => (
@@ -25,6 +27,9 @@ const Header = () => {
   const { isOnline } = useOnlineStatus();
   const navigate = useNavigate();
 
+  //   Subscribe to the store using selector
+  const cart = useSelector((store) => store.cart.items);
+
   return (
     <div className="header">
       <Title />
@@ -40,10 +45,16 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
-            <i className="fa-solid fa-cart-shopping"></i>
+          <li
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <FaShoppingCart /> {cart.length} items
           </li>
-         <li>
+          <li>
             {/* use conditional rendering for login and logout */}
             {isLoggedin ? (
               <button
