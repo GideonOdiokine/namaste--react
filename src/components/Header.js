@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 // Title component for display logo
 const Title = () => (
-  <a href="/">
+  <Link to="/">
     <img
       className="logo"
       src={
@@ -16,7 +16,7 @@ const Title = () => (
       alt="Food Fire Logo"
       title="Food Fire Logo"
     />
-  </a>
+  </Link>
 );
 
 // Header component for header section: Logo, Nav Items
