@@ -46,7 +46,7 @@ const AppLayout = () => {
 };
 
 // call createBrowserRouter for routing different pages
-const appRouter = createBrowserRouter([
+export const appRouter = createBrowserRouter([
   {
     path: "/", // show path for routing
     element: <AppLayout />, // show component for particular path

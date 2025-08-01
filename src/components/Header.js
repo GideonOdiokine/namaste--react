@@ -22,7 +22,7 @@ const Title = () => (
 // Header component for header section: Logo, Nav Items
 const Header = () => {
   // use useState for user logged in or logged out
-  const [isLoggedin, setIsLoggedin] = useState(true);
+  const [isLoggedin, setIsLoggedin] = useState(false);
 
   const { isOnline } = useOnlineStatus();
   const navigate = useNavigate();

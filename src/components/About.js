@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import burgerImage from '../../public/Images/burgerImage.png'
+
 
 const About = () => {
   const [show, setShow] = React.useState(false);
