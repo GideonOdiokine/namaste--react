@@ -3,7 +3,8 @@ import { Link } from "react-router-dom"; // imported Link for client side routin
 import { useNavigate } from "react-router-dom";
 import { useOnlineStatus } from "../hooks/useOnlineStatus";
 import { FaShoppingCart } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout } from "../utils/userSlice";
 
 // Title component for display logo
 const Title = () => (
@@ -22,15 +23,14 @@ const Title = () => (
 // Header component for header section: Logo, Nav Items
 const Header = () => {
   // use useState for user logged in or logged out
-  const [isLoggedin, setIsLoggedin] = useState(false);
+  const isLoggedin = useSelector((store) => store.user.isLoggedin);
 
   const { isOnline } = useOnlineStatus();
   const navigate = useNavigate();
 
   //   Subscribe to the store using selector
   const cartItems = useSelector((store) => store.cart.items);
-
-  console.log(cartItems);
+  const dispatch = useDispatch();
 
   return (
     <div className="header">
@@ -63,7 +63,7 @@ const Header = () => {
               <button
                 className="logout-btn"
                 onClick={() => {
-                  setIsLoggedin(false);
+                  dispatch(logout());
                 }}
               >
                 Logout
@@ -75,7 +75,10 @@ const Header = () => {
                 </span>
               </button>
             ) : (
-              <button className="login-btn" onClick={() => navigate("/login")}>
+              <button
+                className="login-btn"
+                onClick={() => dispatch(login(true))}
+              >
                 Login
                 <span
                   className={isOnline ? "login-btn-green" : "login-btn-red"}

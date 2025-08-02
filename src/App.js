@@ -1,7 +1,6 @@
 // ## Namaste React by Gideon Odiokine
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import About from "./Components/About";
 import Error from "./Components/Error";
@@ -13,6 +12,7 @@ import Bodyi from "./Components/Bodyi";
 import { Provider } from "react-redux";
 import appStore from './utils/appStore';
 import Cart from './components/Cart';
+import Header from './components/Header';
 
 /* My Food App structure will look like this,
             1) Header

@@ -2,6 +2,8 @@ import React from "react";
 import { Formik } from "formik"; // import Formik from formik
 import * as Yup from "yup"; // import Yup from yup
 import { useNavigate } from "react-router-dom";
+import { login } from "../utils/userSlice";
+import { useDispatch } from 'react-redux';
 
 // create a schema for validation
 const schema = Yup.object().shape({
@@ -15,10 +17,13 @@ const schema = Yup.object().shape({
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   function handleNavigate(values) {
     // Alert the input values of the form that we filled
-    alert(values);
+    // alert(values);
+    dispatch(login(true));
+
     // setTimeout for navigate from login page to home page
     setTimeout(() => {
       navigate("/");
