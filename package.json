@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "This is namaste react by Gideon Odiokine",
   "scripts": {
-    "start": "parcel index.html --port 3000",
-    "build": "parcel build index.html --public-url --profile./",
-    "test": "jest"
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "repository": {
     "type": "git",
