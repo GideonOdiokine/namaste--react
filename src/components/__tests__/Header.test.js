@@ -30,7 +30,7 @@ describe("Header Component Test Cases", () => {
     );
 
     const cartItems = screen.getByText("Cart - (0 items)");
-    expect(cartItems).toBeInTheDocument(0);
+    expect(cartItems).toBeInTheDocument();
   });
 
   it("should should render Header Component with a Cart Item", () => {
@@ -43,7 +43,7 @@ describe("Header Component Test Cases", () => {
     );
 
     const cartItems = screen.getByText(/Cart/);
-    expect(cartItems).toBeInTheDocument(0);
+    expect(cartItems).toBeInTheDocument();
   });
 
   it("should change login button to logout onclick", () => {
