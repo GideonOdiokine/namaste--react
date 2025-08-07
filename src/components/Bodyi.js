@@ -97,6 +97,7 @@ const Bodyi = () => {
       <div className="search-container">
         <input
           type="text"
+          data-testid='searchInput'
           className="search-input"
           placeholder="Search a restaurant you want..."
           value={searchText}
