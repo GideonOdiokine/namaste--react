@@ -3,7 +3,7 @@
 
 import { useDispatch } from "react-redux";
 import { IMG_CDN_URL, ITEM_IMG_CDN_URL } from "../../public/Common/constants";
-import { addItem } from '../utils/cartSlice';
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items, dummy }) => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const ItemList = ({ items, dummy }) => {
   return (
     <div>
       {items.map((item) => (
-        <div className="menu-item" key={item?.id}>
+        <div className="menu-item" key={item?.id} data-testid="foodItems">
           <div className="menu-item-details">
             <h3 className="item-title">{item?.name}</h3>
             <p className="item-cost">
