@@ -1,14 +1,14 @@
 // ## Namaste React by Gideon Odiokine
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Footer from "./Components/Footer.js";
-import About from "./Components/About.js";
-import Error from "./Components/Error.js";
-import Contact from "./Components/Contact.js";
-import Login from "./Components/Login.js";
+import Footer from "./components/Footer.js";
+import About from "./components/About.js";
+import Error from "./components/Error.js";
+import Contact from "./components/Contact.js";
+import Login from "./components/Login.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
 import RestaurantMenu from "./components/RestaurantMenu.js";
-import Bodyi from "./Components/Bodyi.js";
+import Bodyi from "./components/Bodyi.js";
 import { Provider } from "react-redux";
 import appStore from './utils/appStore.js';
 import Cart from './components/Cart.js';
