@@ -7,12 +7,12 @@ import Error from "./Components/Error.js";
 import Contact from "./Components/Contact.js";
 import Login from "./Components/Login.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
-import RestaurantMenu from "./components/RestaurantMenu";
-import Bodyi from "./Components/Bodyi";
+import RestaurantMenu from "./components/RestaurantMenu.js";
+import Bodyi from "./Components/Bodyi.js";
 import { Provider } from "react-redux";
-import appStore from './utils/appStore';
-import Cart from './components/Cart';
-import Header from './components/Header';
+import appStore from './utils/appStore.js';
+import Cart from './components/Cart.js';
+import Header from './components/Header.js';
 
 /* My Food App structure will look like this,
             1) Header
