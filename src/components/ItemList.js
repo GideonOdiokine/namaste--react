@@ -2,7 +2,7 @@
 // import { addItem } from "../utils/cartSlice";
 
 import { useDispatch } from "react-redux";
-import { IMG_CDN_URL, ITEM_IMG_CDN_URL } from "../../public/Common/constants";
+import {ITEM_IMG_CDN_URL } from "../../public/common/constants";
 import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items, dummy }) => {
