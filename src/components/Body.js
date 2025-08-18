@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { restaurantList } from "../utils/mockData";
 import RestaurantCard, { withPromptedLabel } from "./RestaurantCard";
 import { FOODFIRE_API_URL } from "../../public/common/constants";
-import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
 const searchDataFunc = (searchText, restaurants) => {

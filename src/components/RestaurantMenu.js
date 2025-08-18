@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { IMG_CDN_URL } from "../../public/Common/constants";
+import { IMG_CDN_URL } from "../../public/common/constants";
 import { useRestaurantMenu } from "../hooks/useRestaurantMenu";
 import { MenuShimmer } from "./Shimmer";
 import { useDispatch } from "react-redux";
