@@ -85,7 +85,7 @@ const Body = () => {
         {/* Restaurant card */}
         {filteredList.map((restaurant) => (
           <Link
-            to={"/restaurant/" + restaurant?.info?.id}
+            to={"/restaurant/" + restaurant?.data?.id}
             key={restaurant.data.id}
           >
             {/* if the restaurant is promoted then add a promoted label to it*/}
