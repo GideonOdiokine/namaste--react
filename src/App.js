@@ -8,11 +8,12 @@ import Contact from "./components/Contact.js";
 import Login from "./components/Login.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
 import RestaurantMenu from "./components/RestaurantMenu.js";
-import Bodyi from "./components/Bodyi.js";
 import { Provider } from "react-redux";
 import appStore from './utils/appStore.js';
 import Cart from './components/Cart.js';
 import Header from './components/Header.js';
+import Bodyi from './components/Bodyi.js';
+import Body from './components/Body.js';
 
 /* My Food App structure will look like this,
             1) Header
@@ -55,7 +56,7 @@ export const appRouter = createBrowserRouter([
       // show children component for routing
       {
         path: "/",
-        element: <Bodyi />,
+        element: <Body />,
       },
       {
         path: "/about",
